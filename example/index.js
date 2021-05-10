@@ -4,7 +4,7 @@
  * @flow
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -16,20 +16,20 @@ import {
   ScrollView,
 } from 'react-native';
 
-// import ModalDropdown from 'react-native-modal-dropdown';
-import ModalDropdown from './ModalDropdown';
+import ModalDropdown from 'react-native-modal-dropdown';
+// import ModalDropdown from './ModalDropdown';
 
 const DEMO_OPTIONS_1 = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5', 'option 6', 'option 7', 'option 8', 'option 9'];
 const DEMO_OPTIONS_2 = [
-  {"name": "Rex", "age": 30},
-  {"name": "Mary", "age": 25},
-  {"name": "John", "age": 41},
-  {"name": "Jim", "age": 22},
-  {"name": "Susan", "age": 52},
-  {"name": "Brent", "age": 33},
-  {"name": "Alex", "age": 16},
-  {"name": "Ian", "age": 20},
-  {"name": "Phil", "age": 24},
+  { "name": "Rex", "age": 30 },
+  { "name": "Mary", "age": 25 },
+  { "name": "John", "age": 41 },
+  { "name": "Jim", "age": 22 },
+  { "name": "Susan", "age": 52 },
+  { "name": "Brent", "age": 33 },
+  { "name": "Alex", "age": 16 },
+  { "name": "Ian", "age": 20 },
+  { "name": "Phil", "age": 24 },
 ];
 
 class Demo extends Component {
@@ -50,25 +50,25 @@ class Demo extends Component {
         <View style={styles.row}>
           <View style={styles.cell}>
             <ModalDropdown style={styles.dropdown_1}
-                           options={DEMO_OPTIONS_1}
+              options={DEMO_OPTIONS_1}
             />
             <ModalDropdown style={styles.dropdown_6}
-                           options={DEMO_OPTIONS_1}
-                           onSelect={(idx, value) => this._dropdown_6_onSelect(idx, value)}>
+              options={DEMO_OPTIONS_1}
+              onSelect={(idx, value) => this._dropdown_6_onSelect(idx, value)}>
               <Image style={styles.dropdown_6_image}
-                     source={dropdown_6_icon}
+                source={dropdown_6_icon}
               />
             </ModalDropdown>
           </View>
           <View style={styles.cell}>
             <ModalDropdown ref="dropdown_2"
-                           style={styles.dropdown_2}
-                           textStyle={styles.dropdown_2_text}
-                           dropdownStyle={styles.dropdown_2_dropdown}
-                           options={DEMO_OPTIONS_2}
-                           renderButtonText={(rowData) => this._dropdown_2_renderButtonText(rowData)}
-                           renderRow={this._dropdown_2_renderRow.bind(this)}
-                           renderSeparator={(sectionID, rowID, adjacentRowHighlighted) => this._dropdown_2_renderSeparator(sectionID, rowID, adjacentRowHighlighted)}
+              style={styles.dropdown_2}
+              textStyle={styles.dropdown_2_text}
+              dropdownStyle={styles.dropdown_2_dropdown}
+              options={DEMO_OPTIONS_2}
+              renderButtonText={(rowData) => this._dropdown_2_renderButtonText(rowData)}
+              renderRow={this._dropdown_2_renderRow.bind(this)}
+              renderSeparator={(sectionID, rowID, adjacentRowHighlighted) => this._dropdown_2_renderSeparator(sectionID, rowID, adjacentRowHighlighted)}
             />
             <TouchableOpacity onPress={() => {
               this.refs.dropdown_2.select(0);
@@ -81,35 +81,35 @@ class Demo extends Component {
         </View>
         <View style={styles.row}>
           <ScrollView ref={el => this._scrollView = el}
-                      style={styles.scrollView}
-                      contentContainerStyle={styles.contentContainer}
-                      showsVerticalScrollIndicator={true}
-                      scrollEventThrottle={1}>
+            style={styles.scrollView}
+            contentContainerStyle={styles.contentContainer}
+            showsVerticalScrollIndicator={true}
+            scrollEventThrottle={1}>
             <Text>
               {'Scroll view example.'}
             </Text>
             <ModalDropdown ref={el => this._dropdown_3 = el}
-                           style={styles.dropdown_3}
-                           options={DEMO_OPTIONS_1}
-                           adjustFrame={style => this._dropdown_3_adjustFrame(style)}
-                           dropdownTextStyle={styles.dropdown_3_dropdownTextStyle}
-                           dropdownTextHighlightStyle={styles.dropdown_3_dropdownTextHighlightStyle}
+              style={styles.dropdown_3}
+              options={DEMO_OPTIONS_1}
+              adjustFrame={style => this._dropdown_3_adjustFrame(style)}
+              dropdownTextStyle={styles.dropdown_3_dropdownTextStyle}
+              dropdownTextHighlightStyle={styles.dropdown_3_dropdownTextHighlightStyle}
             />
           </ScrollView>
         </View>
         <View style={styles.row}>
-          <View style={[styles.cell, {justifyContent: 'flex-end'}]}>
+          <View style={[styles.cell, { justifyContent: 'flex-end' }]}>
             <ModalDropdown style={styles.dropdown_4}
-                           dropdownStyle={styles.dropdown_4_dropdown}
-                           options={this.state.dropdown_4_options}
-                           defaultIndex={-1}
-                           defaultValue={this.state.dropdown_4_defaultValue}
-                           onDropdownWillShow={this._dropdown_4_willShow.bind(this)}
-                           onDropdownWillHide={this._dropdown_4_willHide.bind(this)}
-                           onSelect={(idx, value) => this._dropdown_4_onSelect(idx, value)}
+              dropdownStyle={styles.dropdown_4_dropdown}
+              options={this.state.dropdown_4_options}
+              defaultIndex={-1}
+              defaultValue={this.state.dropdown_4_defaultValue}
+              onDropdownWillShow={this._dropdown_4_willShow.bind(this)}
+              onDropdownWillHide={this._dropdown_4_willHide.bind(this)}
+              onSelect={(idx, value) => this._dropdown_4_onSelect(idx, value)}
             />
           </View>
-          <View style={[styles.cell, {justifyContent: 'flex-end'}]}>
+          <View style={[styles.cell, { justifyContent: 'flex-end' }]}>
             <TouchableOpacity onPress={this._dropdown_5_show.bind(this)}>
               <Text style={styles.textButton}>
                 {'Show dropdown'}
@@ -126,12 +126,12 @@ class Demo extends Component {
               </Text>
             </TouchableOpacity>
             <ModalDropdown ref={el => this._dropdown_5 = el}
-                           style={styles.dropdown_5}
-                           options={['Select me to hide', `I can't be selected`, 'I can only be selected outside']}
-                           defaultValue='Try the Show button above'
-                           onDropdownWillShow={this._dropdown_5_willShow.bind(this)}
-                           onDropdownWillHide={this._dropdown_5_willHide.bind(this)}
-                           onSelect={this._dropdown_5_onSelect.bind(this)}
+              style={styles.dropdown_5}
+              options={['Select me to hide', `I can't be selected`, 'I can only be selected outside']}
+              defaultValue='Try the Show button above'
+              onDropdownWillShow={this._dropdown_5_willShow.bind(this)}
+              onDropdownWillHide={this._dropdown_5_willHide.bind(this)}
+              onSelect={this._dropdown_5_onSelect.bind(this)}
             />
           </View>
         </View>
@@ -140,7 +140,7 @@ class Demo extends Component {
   }
 
   _dropdown_2_renderButtonText(rowData) {
-    const {name, age} = rowData;
+    const { name, age } = rowData;
     return `${name} - ${age}`;
   }
 
@@ -149,12 +149,12 @@ class Demo extends Component {
     let evenRow = rowID % 2;
     return (
       <TouchableHighlight underlayColor='cornflowerblue'>
-        <View style={[styles.dropdown_2_row, {backgroundColor: evenRow ? 'lemonchiffon' : 'white'}]}>
+        <View style={[styles.dropdown_2_row, { backgroundColor: evenRow ? 'lemonchiffon' : 'white' }]}>
           <Image style={styles.dropdown_2_image}
-                 mode='stretch'
-                 source={icon}
+            mode='stretch'
+            source={icon}
           />
-          <Text style={[styles.dropdown_2_row_text, highlighted && {color: 'mediumaquamarine'}]}>
+          <Text style={[styles.dropdown_2_row_text, highlighted && { color: 'mediumaquamarine' }]}>
             {`${rowData.name} (${rowData.age})`}
           </Text>
         </View>
@@ -166,7 +166,7 @@ class Demo extends Component {
     if (rowID == DEMO_OPTIONS_1.length - 1) return;
     let key = `spr_${rowID}`;
     return (<View style={styles.dropdown_2_separator}
-                  key={key}
+      key={key}
     />);
   }
 
@@ -344,4 +344,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('Demo', () => Demo);
+AppRegistry.registerComponent('example', () => Demo);
