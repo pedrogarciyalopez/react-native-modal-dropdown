@@ -14,6 +14,7 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   ScrollView,
+  SafeAreaView
 } from 'react-native';
 
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -46,7 +47,7 @@ class Demo extends Component {
   render() {
     const dropdown_6_icon = this.state.dropdown_6_icon_heart ? require('./images/heart.png') : require('./images/flower.png');
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.row}>
           <View style={styles.cell}>
             <ModalDropdown style={styles.dropdown_1}
@@ -135,7 +136,7 @@ class Demo extends Component {
             />
           </View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 
