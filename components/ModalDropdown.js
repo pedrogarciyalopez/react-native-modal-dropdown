@@ -5,22 +5,12 @@ import {
   View,
   Text,
   TouchableWithoutFeedback,
-  TouchableNativeFeedback,
   TouchableOpacity,
-  TouchableHighlight,
   Modal,
   ActivityIndicator,
   FlatList,
-  Platform
 } from 'react-native';
 import PropTypes from 'prop-types';
-
-const TOUCHABLE_ELEMENTS = [
-  'TouchableHighlight',
-  'TouchableOpacity',
-  'TouchableWithoutFeedback',
-  'TouchableNativeFeedback',
-];
 
 export default class ModalDropdown extends Component {
   static propTypes = {
@@ -100,7 +90,7 @@ export default class ModalDropdown extends Component {
     isFullWidth: false,
     showsVerticalScrollIndicator: true,
     keyboardShouldPersistTaps: 'never',
-    renderRowComponent: Platform.OS === 'ios' ? TouchableOpacity : TouchableHighlight,
+    renderRowComponent: TouchableOpacity,
     renderButtonComponent: TouchableOpacity,
     renderRightComponent: View
   };
